@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ARRR Bot</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    </head>
+    <body>
+       
+         
+      <main class="centered-container">
+        <div class="login-box">
+          <h2>Welcome to the ARRR Bot</h2>
+          <p>Please enter the password to continue.</p>
+          
+          <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-row">
+              {{ form.password.label }}<br>
+              {{ form.password }}
+            </div>
+            <div class="form-row">
+              {{ form.submit }}
+            </div>
+          </form>
+        </div>
+      </main>
+
+    </body>
+</html>

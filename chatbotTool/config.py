@@ -1,0 +1,22 @@
+import os
+
+class Config(object):
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+
+    # OpenAI settings
+    EMBEDDING_MODEL = "text-embedding-3-large"
+    COMPLETION_MODEL = "gpt-4o-mini"
+
+    # File paths - PUT YOUR PICKLE FILE PATHS HERE
+    ARTICLES_FILE = "static/articles.pkl"
+    EMBEDDINGS_FILE = "static/embeddings.pkl"
+
+    # Prompt settings
+    MAX_SECTION_LEN = 500
+    SEPARATOR = "\n* "
+    ENCODING = "gpt2"
+    MAX_TOKENS = 2000
+    TEMPERATURE = 1
+
+    OPENAI_KEY = YOURKEYHERE or ''
+    CHAT_PASSWORD = "YOUR PASSWORD HERE"

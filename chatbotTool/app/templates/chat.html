@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARRR Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+<body>
+
+    <main>
+
+        {% if fullChat|length == 0 %}
+        <div class="initial-container">
+            <div class="instructions">
+
+                <p><strong>ARRBOT v 0.3</strong></p>
+
+                <p>
+                    This chatbot has been developed to answer questions from a specific knowledge base, 
+                    in this case articles about 
+                    <a href="https://theconversation.com/ca/topics/opioids-1046">opioids from The Conversation</a>. 
+                    It uses the <a href="https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/">OpenAI GPT API</a> 
+                    and should not answer questions outside of that context. 
+                    Enter a question below to get started. This is an experimental tool and still a work in progress.
+                </p>
+            </div>
+
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="chat-input-container">
+                    {{ form.questionText }}
+                    <div class="buttonArea">
+                        {{ form.submit() }}
+                    </div>
+                </div>
+            </form>
+
+            <div id="inline-spinner" class="inline-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <div class="spinner-text">Thinking...</div>
+            </div>
+
+        </div>
+        {% else %}
+    
+        <div class="chat-bubbles">
+            {% for chat in chatHistory %}
+                {% if loop.index0 % 2 == 0 %}
+                    <!-- Even index = user question (LEFT) -->
+                    <div class="bubble user">{{ chat|safe }}</div>
+                {% else %}
+                    <!-- Odd index = assistant answer (RIGHT) -->
+                    <div class="bubble assistant">{{ chat|safe }}</div>
+                    {% if loop.last and followupSuggestions %}
+                    <div class="followup-bubbles">
+                        {% for q in followupSuggestions %}
+                            <a class="followup-bubble" href="#" onclick='submitFollowup({{ q|tojson }}); return false;'>{{ q }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            
+            <div id="inline-spinner" class="inline-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <div class="spinner-text">Thinking...</div>
+            </div>
+
+            <div id="chat-end"></div> 
+        </div>
+
+        <form action="" method="post" novalidate class="bottom-form">
+            {{ form.hidden_tag() }}
+            <div class="chat-input-container">
+                {{ form.questionText }}
+                <div class="buttonArea">
+                    {{ form.submit() }}
+                    {{ form.reset }}
+                    {{ form.export }}
+                </div>
+            </div>
+        </form>
+        {% endif %}
+
+        <form id="hiddenSubmitForm" method="POST" style="display:none;">
+            <input type="hidden" name="questionText" id="hiddenQuestionInput">
+            <input type="submit" id="hiddenSubmitButton">
+            {{ form.hidden_tag() }}
+        </form>
+
+        <script>
+            function submitFollowup(questionText) {
+                const hiddenInput = document.getElementById("hiddenQuestionInput");
+                const hiddenForm = document.getElementById("hiddenSubmitForm");
+                const hiddenSubmitButton = document.getElementById("hiddenSubmitButton");
+
+                if (!hiddenInput || !hiddenForm || !hiddenSubmitButton) {
+                    console.log("Hidden form elements not found");
+                    return;
+                }
+
+                const spinner = document.getElementById("inline-spinner"); 
+                if (spinner) {
+                    spinner.style.display = "flex"; 
+                }
+
+                hiddenInput.value = questionText;
+                hiddenSubmitButton.click();
+                setTimeout(scrollToBottom, 500);
+            }
+
+            function scrollToBottom() {
+                const endElement = document.getElementById("chat-end");
+                if (endElement) {
+                    endElement.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            window.onload = scrollToBottom;
+
+            function getVisibleHeight() {
+                var totalHeight = document.body.scrollHeight;
+                var contextSection = document.getElementById("context");
+                if (window.getComputedStyle(contextSection).display === 'none') {
+                    return totalHeight;
+                } else {
+                    return totalHeight - contextSection.offsetHeight;
+                }
+            }
+
+            function toggleSection() {
+                var context = document.getElementById("context"); 
+                if (window.getComputedStyle(context).display === 'none') {
+                    context.style.display = 'block';
+                } else {
+                    context.style.display = 'none'; 
+                }
+                var visibleHeight = getVisibleHeight();
+                window.scrollTo(0, visibleHeight);
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const textarea = document.getElementById("questionText");
+                const submitButtons = document.querySelectorAll('input[name=submit]');
+                const spinner = document.getElementById("inline-spinner");
+
+                if (textarea && submitButtons.length > 0) {
+                    textarea.addEventListener("keydown", function (event) {
+                        if (event.key === "Enter" && !event.shiftKey) {
+                            event.preventDefault(); // Prevent newline
+                            submitButtons[0].click();
+
+                            setTimeout(() => {
+                                submitButtons[0].disabled = true;
+                            }, 10);
+                        }
+                    });
+
+                    submitButtons.forEach(button => {
+                        button.addEventListener("click", function () {
+                            setTimeout(() => {
+                                button.disabled = true;
+                            }, 10);
+                            if (spinner) {
+                                spinner.style.display = "flex";
+                            }
+                        });
+                    });
+                }
+            });
+
+                    
+        </script>
+    </main>
+</body>
+</html>
