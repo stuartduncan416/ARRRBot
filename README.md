@@ -43,10 +43,10 @@ The embedding script [genericEmbedding.py](https://github.com/stuartduncan416/ch
 `pip install pandas` (which should already be installed)\
 `pip install openai`
 2. Add your OpenAI key to [genericEmbedding.py](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/genericEmbedding.py) 
-3. Run the script specifying the CSV file you created with the article data script\
+3. Run the script specifying the CSV file you created with the article data script as an input file\
 `python genericEmbedding.py -i yourArticles.csv`
 
-If run successfully two pickle files should be saved in the directory you ran the script from: yourArticles.pkl and embeddings_yourArticles.pkl
+If run successfully, two pickle files should be saved in the directory you ran the script from: yourArticles.pkl and embeddings_yourArticles.pkl
 
 ### Flask Application Setup
 
@@ -56,14 +56,14 @@ The Flask application developed for this project encompassed the core functional
 2. Open a bash console
 3. Create a directory for your chatbot application using this command in the bash console:\
 `mkdir myChatbot`
-4. On local version of the Flask project downloaded to your computer edit the file paths for the embeddings within the [config.py](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/config.py). Assuming your static files would live in a static directory of the root directory of your project file (something like /home/yourusername/myChatbot/static/) this section of code would look as follows:
+4. On version of the Flask project downloaded to your computer edit the file paths for the embeddings within the [config.py](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/config.py). Assuming your static files would live in a static directory of the root directory of your project file (something like /home/yourusername/myChatbot/static/) this section of code would look as follows:
 ```
 # File paths
 ARTICLES_FILE = "static/yourArticles.pkl"
 EMBEDDINGS_FILE = "static/embeddings_yourArticles.pkl"
 ```
 5. Create a .env file, similar to this [sample file](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/SAMPLE.env) and place this in the root directory of your Flask project on your local computer
-6. Edit the values in this .env file to match your OpenAI key and your desired password for your chatbot. Note that OpenAI is not contained in quotes in this file, but your password is
+6. Edit the values in this .env file to match your OpenAI key and your desired password for your chatbot. Note that OpenAI API key is not contained in quotes in this file, but your password is
 7. Returning to your bash console in the PythonAnywhere dashboard, create a virtual environment for your project, using the following command:\
 `mkvirtualenv --python=/usr/bin/python3.8 chatbotEnv`
 8. Your virtual environment should be now be running, and you should see the name of your virtual environment at the beginning of the console prompt
@@ -76,18 +76,18 @@ EMBEDDINGS_FILE = "static/embeddings_yourArticles.pkl"
 `pip install openai`\
 `pip install python-dotenv`\
 `pip install Flask-Session`
-10. In your Flask project root directory create a directory called : flask_session You could do this with the follow command :\
+10. In your Flask project root directory create a directory called : flask_session You could do this with the following command :\
 `mkdir -p /home/yourusername/myChatbot/flask_session`
-11. In your Flask project root directory create a directory called : static You could do this with the follow command :\
+11. In your Flask project root directory also create a directory called : static You could do this with the following command :\
 `mkdir -p /home/yourusername/myChatbot/static`
 12. Using your FTP client, upload your two pickle files to this static directory
 13. On the PythonAnywhere dashboard create a web app
 14. Select a manual installation
 15. Select Python 3.8 as your Python version
 16. On the configuration page for your web app change the following settings:
-  - Under Vitrualenv, enter the name of your virtualenv, in this case : chatbotEnv
+  - In the virtualenv section, enter the name of your virtualenv, in this case : chatbotEnv
   - Set the working directory to your project root directory, in this case : /home/yourusername/myChatbot/
-  - Set static files to URL /static/ and the directory directory to your specfied static directory in this case: /home/yourusername/myChatbot/static/
+  - Set the static files URL to /static/ and the static directory to your specfied static directory in this case: /home/yourusername/myChatbot/static/
   - Open the WSGI configuration file by clicking on it in the code section, erase everything in it and put it code similar to this:\
 ```
 import sys
@@ -103,6 +103,9 @@ if path not in sys.path:
 
 from chatbot import app as application
 ```
+17. Reload your web app, by clicking on the green reload button at the top of web app configuration page
+18. If everything has worked, you should be able to visit the url of your web application, and see the working chatbot. You will be able to login with the password specified in your .env file
+
     
     
 
