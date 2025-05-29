@@ -8,8 +8,8 @@ class Config(object):
     COMPLETION_MODEL = "gpt-4o-mini"
 
     # File paths
-    ARTICLES_FILE = "static/articlesSplitTikTok.pkl"
-    EMBEDDINGS_FILE = "static/embeddingMerged.pkl"
+    ARTICLES_FILE = "static/articles.pkl"
+    EMBEDDINGS_FILE = "static/embeddings.pkl"
 
     # Prompt settings
     MAX_SECTION_LEN = 500
