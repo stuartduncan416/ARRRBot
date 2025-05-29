@@ -28,12 +28,10 @@ Helpful resources:
 The data gatherer script [genericDataGather.py](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/genericDataGather.py), gathers article data from news websites and outputs a CSV file of your article data to be used for creating embeddings. 
 
 1. Create a text file with one article URL per line, similar to [uniqueLinksSample.csv](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/uniqueLinksSample.csv)
-2. Install the required dependencies if needed:
-`pip install newspaper3k
-
-`pip install pandas
-
-`pip install transformers 
+2. Install the required dependencies if needed:\
+`pip install newspaper3k`
+`pip install pandas`
+`pip install transformers`
 4. test
 
 
