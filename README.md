@@ -5,7 +5,7 @@ The code created as part of this project can be broadly classified into two part
 
 ## Deploying the Chatbot
 
-The video below explains how to deploy the chatbot using the PythonAnywhere hosting service. A concise overview of the process is also included on this page.
+The following [YouTube video](https://youtu.be/zD3infnfHoM?si=i7aBLPcPOMpoQ532) explains how to deploy the chatbot using the PythonAnywhere hosting service in more detail. A concise overview of the process is also included on this page.
 
 This implementation requires the following:
 * Python 3.8 or later installed on your local computer
