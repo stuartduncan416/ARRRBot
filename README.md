@@ -20,6 +20,9 @@ Helpful resources:
 * [PythonAnywhere](https://www.pythonanywhere.com/)
 * [How to Use and Setup the FileZilla FTP Client](https://youtu.be/0DpnTp9QeHU?si=0QupsvV_sdMp5yud)
 * [Download the FileZilla FTP Client](https://filezilla-project.org/download.php?type=client)
+* [How to get your code in and out of PythonAnywhere](https://help.pythonanywhere.com/pages/UploadingAndDownloadingFiles/)
+* [How to setup SSH access to PythonAnywhere](https://help.pythonanywhere.com/pages/SSHAccess)
+* [Setting up a custom domain on PythonAnywhere](https://help.pythonanywhere.com/pages/CustomDomains/)
 
 ## Implementation Overview
 
