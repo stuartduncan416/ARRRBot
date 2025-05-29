@@ -75,7 +75,36 @@ EMBEDDINGS_FILE = "static/embeddings_yourArticles.pkl"
 `pip install -U Flask-WTF`\
 `pip install openai`\
 `pip install python-dotenv`\
-`pip install Flask-Session`\
+`pip install Flask-Session`
+10. In your Flask project root directory create a directory called : flask_session You could do this with the follow command :\
+`mkdir -p /home/yourusername/myChatbot/flask_session`
+11. In your Flask project root directory create a directory called : static You could do this with the follow command :\
+`mkdir -p /home/yourusername/myChatbot/static`
+12. Using your FTP client, upload your two pickle files to this static directory
+13. On the PythonAnywhere dashboard create a web app
+14. Select a manual installation
+15. Select Python 3.8 as your Python version
+16. On the configuration page for your web app change the following settings:
+  - Under Vitrualenv, enter the name of your virtualenv, in this case : chatbotEnv
+  - Set the working directory to your project root directory, in this case : /home/yourusername/myChatbot/
+  - Set static files to URL /static/ and the directory directory to your specfied static directory in this case: /home/yourusername/myChatbot/static/
+  - Open the WSGI configuration file by clicking on it in the code section, erase everything in it and put it code similar to this:\
+```
+import sys
+import os
+from dotenv import load_dotenv
+project_folder = os.path.expanduser('~/myChatbot')  # adjust as appropriate
+load_dotenv(os.path.join(project_folder, '.env'))
+
+path = '/home/yourusername/myChatbot/'
+
+if path not in sys.path:
+   sys.path.insert(0, path)
+
+from chatbot import app as application
+```
+    
+    
 
 
 
