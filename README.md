@@ -56,12 +56,29 @@ The Flask application developed for this project encompassed the core functional
 2. Open a bash console
 3. Create a directory for your chatbot application using this command in the bash console:\
 `mkdir myChatbot`
-4. On local version of the Flask project downloaded to your computer edit the file paths for the embeddings within the [config.py](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/config.py). Assuming your static files would live in a static directory of the root directory of your project file (something like /home/yourusername/myChatbot/static/) this section of code would look as follows:\
+4. On local version of the Flask project downloaded to your computer edit the file paths for the embeddings within the [config.py](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/config.py). Assuming your static files would live in a static directory of the root directory of your project file (something like /home/yourusername/myChatbot/static/) this section of code would look as follows:
 ```
 # File paths
 ARTICLES_FILE = "static/yourArticles.pkl"
 EMBEDDINGS_FILE = "static/embeddings_yourArticles.pkl"
 ```
+5. Create a .env file, similar to this [sample file](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/SAMPLE.env) and place this in the root directory of your Flask project on your local computer
+6. Edit the values in this .env file to match your OpenAI key and your desired password for your chatbot. Note that OpenAI is not contained in quotes in this file, but your password is
+7. Returning to your bash console in the PythonAnywhere dashboard, create a virtual environment for your project, using the following command:\
+`mkvirtualenv --python=/usr/bin/python3.8 chatbotEnv`
+8. Your virtual environment should be now be running, and you should see the name of your virtual environment at the beginning of the console prompt
+9. Within your virtual environment install the following Python libraries:\
+`pip install numpy`\
+`pip install pandas`\
+`pip install tiktoken`\
+`pip install flask`\
+`pip install -U Flask-WTF`\
+`pip install openai`\
+`pip install python-dotenv`\
+`pip install Flask-Session`\
+
+
+
 
 
 
