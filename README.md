@@ -5,8 +5,11 @@ The code created as part of this project can be broadly classified into two part
 
 # Implementation Details
 
-To implement this chatbot requires a few things:
-* Python 3.8+ downloaded to your local computer
-* The files for the preperation scripts and the flask application files, as found in this repository
-* An OpenAI account and an API key
-* An FTP client
+The video below explains how to deploy the chatbot using the PythonAnywhere hosting service. A concise overview of the process is also included on this page.
+
+This implementation requires the following:
+* Python 3.8 or later installed on your local computer
+* The preparation scripts and Flask application files from this repository
+* An OpenAI account with an active API key
+* A PythonAnywhere account (free or paid)
+* An FTP client for file transfers
