@@ -3,7 +3,7 @@ ARRR Bot (automated response, retrieval and recommendation bot), is a Flask chat
 
 The code created as part of this project can be broadly classified into two parts, the scripts that prepare article data for use in the chatbot (contained within the prepScripts directory), and the Flask project files for that chatbot tool itself (contained within the chatbotTool directory). 
 
-# Deploying the Chatbot
+## Deploying the Chatbot
 
 The video below explains how to deploy the chatbot using the PythonAnywhere hosting service. A concise overview of the process is also included on this page.
 
