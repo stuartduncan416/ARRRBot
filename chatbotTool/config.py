@@ -7,9 +7,9 @@ class Config(object):
     EMBEDDING_MODEL = "text-embedding-3-large"
     COMPLETION_MODEL = "gpt-4o-mini"
 
-    # File paths - PUT YOUR PICKLE FILE PATHS HERE
-    ARTICLES_FILE = "static/articles.pkl"
-    EMBEDDINGS_FILE = "static/embeddings.pkl"
+    # File paths
+    ARTICLES_FILE = "static/articlesSplitTikTok.pkl"
+    EMBEDDINGS_FILE = "static/embeddingMerged.pkl"
 
     # Prompt settings
     MAX_SECTION_LEN = 500
@@ -18,5 +18,5 @@ class Config(object):
     MAX_TOKENS = 2000
     TEMPERATURE = 1
 
-    OPENAI_KEY = YOURKEYHERE or ''
-    CHAT_PASSWORD = "YOUR PASSWORD HERE"
+    OPENAI_KEY = os.environ.get('OPENAI_KEY') or ''
+    CHAT_PASSWORD = os.environ.get('CHAT_PASSWORD') 
