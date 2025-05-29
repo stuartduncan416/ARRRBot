@@ -13,3 +13,10 @@ This implementation requires the following:
 * An OpenAI account with an active API key
 * A PythonAnywhere account (free or paid)
 * An FTP client for file transfers
+
+Helpful resources:
+* [How To Get An OpenAI API Key](https://youtu.be/SzPE_AE0eEo?si=jf9D8ok9w3QPSQ-c)
+* [How to Install Python on Your System](https://realpython.com/installing-python/)
+* [PythonAnywhere](https://www.pythonanywhere.com/)
+* [How to Use and Setup the FileZilla FTP Client](https://youtu.be/0DpnTp9QeHU?si=0QupsvV_sdMp5yud)
+* [Download the FileZilla FTP Client](https://filezilla-project.org/download.php?type=client)
