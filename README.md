@@ -29,9 +29,9 @@ The data gatherer script [genericDataGather.py](https://github.com/stuartduncan4
 
 1. Create a text file with one article URL per line, similar to [uniqueLinksSample.csv](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/uniqueLinksSample.csv)
 2. Install the required dependencies if needed:\
-`pip install newspaper3k`
-`pip install pandas`
+`pip install newspaper3k`\
+`pip install pandas`\
 `pip install transformers`
-4. test
+3. test
 
 
