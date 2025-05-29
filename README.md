@@ -48,6 +48,22 @@ The embedding script [genericEmbedding.py](https://github.com/stuartduncan416/ch
 
 If run successfully two pickle files should be saved in the directory you ran the script from: yourArticles.pkl and embeddings_yourArticles.pkl
 
+### Flask Application Setup
+
+The Flask application developed for this project encompassed the core functionality of the chatbot prototype, including the user interface, the construction of conversational prompts, and the integration with OpenAI’s API. The process below outlines how to setup the application on a PythonAnywhere hosting account. 
+
+1. Login into your PythonAnywhere account
+2. Open a bash console
+3. Create a directory for your chatbot application using this command in the bash console:\
+`mkdir myChatbot`
+4. On local version of the Flask project downloaded to your computer edit the file paths for the embeddings within the [config.py](https://github.com/stuartduncan416/chatbot/blob/main/chatbotTool/config.py). Assuming your static files would live in a static directory of the root directory of your project file (something like /home/yourusername/myChatbot/static/) this section of code would look as follows:\
+```
+# File paths
+ARTICLES_FILE = "static/yourArticles.pkl"
+EMBEDDINGS_FILE = "static/embeddings_yourArticles.pkl"
+```
+
+
 
 
 
