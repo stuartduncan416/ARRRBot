@@ -35,4 +35,20 @@ The data gatherer script [genericDataGather.py](https://github.com/stuartduncan4
 3. Run the script specifiying the article url text file created in step one, and your desired output CSV filename:\
 `python genericDataGather.py -i yourArticleList.txt -o yourArticles.csv`
 
+### Prepare the Document Embeddings
+
+The embedding script [genericEmbedding.py](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/genericEmbedding.py), prepares the article data from the data gathering script for text comparison. 
+
+1. Install the required dependencies if needed:\
+`pip install pandas` (which should already be installed)\
+`pip install openai`
+2. Add your OpenAI key to [genericEmbedding.py](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/genericEmbedding.py) 
+3. Run the script specifying the CSV file you created with the article data script\
+`python genericEmbedding.py -i yourArticles.csv`
+
+If run successfully two pickle files should be saved in the directory you ran the script from: yourArticles.pkl and embeddings_yourArticles.pkl
+
+
+
+
 
