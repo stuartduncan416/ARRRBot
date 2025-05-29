@@ -20,3 +20,18 @@ Helpful resources:
 * [PythonAnywhere](https://www.pythonanywhere.com/)
 * [How to Use and Setup the FileZilla FTP Client](https://youtu.be/0DpnTp9QeHU?si=0QupsvV_sdMp5yud)
 * [Download the FileZilla FTP Client](https://filezilla-project.org/download.php?type=client)
+
+## Implementation Overview
+
+### Prepare Your Article data
+
+The data gatherer script [genericDataGather.py](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/genericDataGather.py), gathers article data from news websites and outputs a CSV file of your article data to be used for creating embeddings. 
+
+1. Create a text file with one article URL per line, similar to [uniqueLinksSample.csv](https://github.com/stuartduncan416/chatbot/blob/main/prepScripts/uniqueLinksSample.csv)
+2. Install the required dependencies if needed:
+`pip install newspaper3k
+`pip install pandas
+`pip install transformers 
+3. test
+
+
