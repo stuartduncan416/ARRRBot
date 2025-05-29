@@ -32,6 +32,7 @@ The data gatherer script [genericDataGather.py](https://github.com/stuartduncan4
 `pip install newspaper3k`\
 `pip install pandas`\
 `pip install transformers`
-3. test
+3. Run the script specifiying the article url text file created in step one, and your desired output CSV filename:\
+`python genericDataGather.py -i yourArticleList.txt -o yourArticles.csv`
 
 
