@@ -3,7 +3,7 @@ ARRR Bot (automated response, retrieval and recommendation bot), is a Flask chat
 
 The code created as part of this project can be broadly classified into two parts, the scripts that prepare article data for use in the chatbot (contained within the prepScripts directory), and the Flask project files for that chatbot tool itself (contained within the chatbotTool directory). 
 
-This project was created as part of the PhD dissertation work of [Stuart Duncan](https://www.stuartduncan.ca) a graduate researcher within the [Media and Design Innovation program](https://www.torontomu.ca/phd-media-design-innovation/) at [Toronto Metropoltian University] (https://www.torontomu.ca/). For questions, please reach out to Stuart via email at: stuart@stuartduncan.ca
+This project was created as part of the PhD dissertation work of [Stuart Duncan](https://www.stuartduncan.ca) a graduate researcher within the [Media and Design Innovation program](https://www.torontomu.ca/phd-media-design-innovation/) at [Toronto Metropoltian University](https://www.torontomu.ca/). For questions, please reach out to Stuart via email at: stuart@stuartduncan.ca
 
 ## Deploying the Chatbot
 
